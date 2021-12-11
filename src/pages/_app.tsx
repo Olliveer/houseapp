@@ -10,7 +10,7 @@ import { Layout } from '../components/Layout';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head></Head>
+      {/* <Head></Head> */}
       <ChakraProvider theme={theme}>
         <Layout>
           <Component {...pageProps} />
