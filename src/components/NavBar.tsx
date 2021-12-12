@@ -9,12 +9,17 @@ import {
   IconButton,
   MenuList,
   MenuItem,
+  useColorMode,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { FcAbout, FcHome, FcMenu } from 'react-icons/fc';
 import { BsSearch } from 'react-icons/bs';
 import { FiKey } from 'react-icons/fi';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 export function NavBar() {
+  const { toggleColorMode: toggleMode } = useColorMode();
+  const darkMode = useColorModeValue('Dark Mode', 'Light Mode');
   return (
     <Flex p="2" borderBottom="1px" borderColor={'gray.100'}>
       <Box fontSize={'3xl'} color={'blue.400'} fontWeight={'bold'}>
@@ -48,6 +53,13 @@ export function NavBar() {
             <NextLink href="/search?purpose=for-rent" passHref>
               <MenuItem icon={<FiKey />}>Rent Property</MenuItem>
             </NextLink>
+
+            <MenuItem
+              onClick={toggleMode}
+              icon={useColorModeValue(<FaMoon />, <FaSun />)}
+            >
+              {darkMode}
+            </MenuItem>
           </MenuList>
         </Menu>
       </Box>
